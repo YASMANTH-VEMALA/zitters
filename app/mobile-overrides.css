@@ -1,0 +1,7 @@
+@media (max-width: 760px) {
+  .site-shell { width: calc(100% - 32px); }
+  .hero-layout { grid-template-columns: minmax(0, 1fr); }
+  .hero-layout > * { min-width: 0; }
+  .announcement { width: auto; font-size: 8px; }
+  .hero-message h1 { font-size: 47px; }
+}

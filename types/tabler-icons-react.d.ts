@@ -1,0 +1,55 @@
+declare module "@tabler/icons-react" {
+  import type { ComponentType, SVGProps } from "react";
+
+  type IconProps = Omit<SVGProps<SVGSVGElement>, "stroke"> & { size?: number | string; stroke?: number | string };
+  type TablerIcon = ComponentType<IconProps>;
+
+  export const IconArrowRight: TablerIcon;
+  export const IconArrowLeft: TablerIcon;
+  export const IconBolt: TablerIcon;
+  export const IconBrandWhatsapp: TablerIcon;
+  export const IconBrandGoogle: TablerIcon;
+  export const IconBrandTelegram: TablerIcon;
+  export const IconBuildingStore: TablerIcon;
+  export const IconCalendarCheck: TablerIcon;
+  export const IconChartBar: TablerIcon;
+  export const IconBell: TablerIcon;
+  export const IconBrain: TablerIcon;
+  export const IconCheck: TablerIcon;
+  export const IconChevronDown: TablerIcon;
+  export const IconChevronRight: TablerIcon;
+  export const IconCloudLock: TablerIcon;
+  export const IconCreditCard: TablerIcon;
+  export const IconDeviceMobile: TablerIcon;
+  export const IconHeartRateMonitor: TablerIcon;
+  export const IconMenu2: TablerIcon;
+  export const IconMail: TablerIcon;
+  export const IconMapPin: TablerIcon;
+  export const IconMapSearch: TablerIcon;
+  export const IconMessageCircle: TablerIcon;
+  export const IconMessages: TablerIcon;
+  export const IconNetwork: TablerIcon;
+  export const IconQrcode: TablerIcon;
+  export const IconQuote: TablerIcon;
+  export const IconRocket: TablerIcon;
+  export const IconRobot: TablerIcon;
+  export const IconRoute: TablerIcon;
+  export const IconSearch: TablerIcon;
+  export const IconShieldCheck: TablerIcon;
+  export const IconSparkles: TablerIcon;
+  export const IconStar: TablerIcon;
+  export const IconStars: TablerIcon;
+  export const IconUsers: TablerIcon;
+  export const IconX: TablerIcon;
+  export const IconBrandMeta: TablerIcon;
+  export const IconBrandInstagram: TablerIcon;
+  export const IconBrandFacebook: TablerIcon;
+  export const IconCalendar: TablerIcon;
+  export const IconCash: TablerIcon;
+  export const IconScissors: TablerIcon;
+  export const IconStethoscope: TablerIcon;
+  export const IconFileText: TablerIcon;
+  export const IconTrendingUp: TablerIcon;
+  export const IconFlame: TablerIcon;
+  export const IconReceipt: TablerIcon;
+}

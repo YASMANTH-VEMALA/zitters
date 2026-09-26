@@ -1,0 +1,69 @@
+/* Motion stays on composited transforms; viewport attributes suspend idle scenes. */
+.motion-toggle { position:fixed; z-index:100; right:18px; bottom:18px; display:flex; align-items:center; gap:8px; padding:10px 14px; border:1px solid #d6d6d6; border-radius:30px; background:rgba(255,255,255,.94); color:#333; box-shadow:0 4px 20px #0000000a; font:11px Arial,sans-serif; cursor:pointer; }
+.motion-toggle:disabled { cursor:default; }
+.main-hero,.gym-hero { position:relative; isolation:isolate; }
+.main-hero::before,.gym-hero::before { content:""; position:absolute; z-index:-1; pointer-events:none; inset:0; background:radial-gradient(ellipse at 22% 35%,#e9e7ff 0,transparent 48%),radial-gradient(ellipse at 78% 60%,#e6f2ff 0,transparent 45%); opacity:.6; }
+.hero-layout { perspective:1200px; }
+.command-center { overflow:visible; }
+.command-topbar { border-radius:10px 10px 0 0; }
+.command-body { border-radius:0 0 10px 10px; overflow:hidden; }
+.live-notice { display:flex; z-index:4; border:1px solid #e0e5ef; background:#fff; box-shadow:0 12px 32px #1c29551a; }
+.notice-one { left:-22px; bottom:28px; }
+.notice-two { right:-20px; top:100px; bottom:auto; }
+.hero-scroll { position:relative; display:flex; margin:42px auto 0; bottom:auto; left:auto; transform:none; width:max-content; color:#777; }
+.workflow-line { position:relative; overflow:hidden; }
+.workflow-line::after { content:""; position:absolute; inset:0; background:linear-gradient(transparent,#7c3aed,transparent); }
+.workflow-head small { display:flex; align-items:center; gap:6px; }
+.workflow-head small::before { content:""; width:5px; height:5px; border-radius:50%; background:#168367; }
+.loop-ring::after,.orbit-line::after { content:""; position:absolute; width:8px; height:8px; top:50%; left:-4px; border-radius:50%; background:#6685e8; box-shadow:0 0 15px #6685e877; }
+.ring-two::after,.orbit-line.two::after { background:#9970d9; }
+.final-cta,.gym-final { position:relative; isolation:isolate; overflow:hidden; }
+.final-cta::after,.gym-final::after { content:""; position:absolute; z-index:-1; width:70%; height:180%; top:-40%; left:15%; background:radial-gradient(ellipse,#6471bd33,transparent 65%); pointer-events:none; }
+.growth-product,.gallery-card,.future-card { transition:translate .4s,box-shadow .4s,border-color .4s; }
+@media (hover:hover) and (prefers-reduced-motion:no-preference) {
+  .growth-product:hover,.gallery-card:hover,.future-card:hover { translate:0 -6px; box-shadow:0 18px 40px #17274d0d; }
+}
+@media (prefers-reduced-motion:no-preference) {
+  .main-hero::before,.gym-hero::before { animation:ambient-drift 16s ease-in-out infinite alternate; }
+  .hero-message h1,.gym-hero h1 { clip-path:inset(0); animation:headline-unveil 1.4s cubic-bezier(.22,1,.36,1) both; }
+  .live-notice,.mobile-float { animation:notice-float 6s ease-in-out infinite!important; }
+  .notice-two,.float-streak { animation-delay:-3s!important; }
+  .workflow-line::after { animation:signal-travel 2.4s ease-in-out infinite; }
+  .workflow-head small::before { animation:status-pulse 2.6s ease-in-out infinite; }
+  .workflow-split>div { animation:node-glow 4.8s ease-in-out infinite; }
+  .workflow-split>div:nth-child(2) { animation-delay:1.6s; }
+  .workflow-split>div:nth-child(3) { animation-delay:3.2s; }
+  .loop-ring,.orbit-line { animation:orbital-travel 22s linear infinite; }
+  .ring-two,.orbit-line.two { animation-duration:32s; animation-direction:reverse; }
+  .hero-scroll i { animation:scroll-invite 2s ease-in-out infinite; }
+  .final-cta::after,.gym-final::after { animation:ambient-drift 12s ease-in-out infinite alternate; }
+  .scroll-section[data-in-view="false"]::before,
+  .scroll-section[data-in-view="false"]::after,
+  .scroll-section[data-in-view="false"] *,
+  .scroll-section[data-in-view="false"] *::before,
+  .scroll-section[data-in-view="false"] *::after,
+  .scroll-visual[data-in-view="false"] *,
+  .scroll-visual[data-in-view="false"] *::after { animation-play-state:paused!important; }
+}
+@keyframes headline-unveil { from { clip-path:inset(0 0 100%); translate:0 24px; } to { clip-path:inset(0); translate:0 0; } }
+@keyframes ambient-drift { from { transform:translate3d(-4%,0,0) scale(1); } to { transform:translate3d(4%,3%,0) scale(1.12); } }
+@keyframes notice-float { 0%,100% { translate:0 0; } 50% { translate:0 -12px; } }
+@keyframes signal-travel { from { transform:translateY(-100%); } to { transform:translateY(100%); } }
+@keyframes status-pulse { 0%,100% { opacity:1; scale:1; } 50% { opacity:.4; scale:.75; } }
+@keyframes node-glow { 0%,65%,100% { border-color:#e2e2e2; } 25% { border-color:#8a76cf; } }
+@keyframes orbital-travel { from { transform:translate(-50%,-50%) rotate(0); } to { transform:translate(-50%,-50%) rotate(360deg); } }
+@keyframes scroll-invite { 0%,100% { translate:0 -3px; opacity:.45; } 50% { translate:0 4px; opacity:1; } }
+@media (max-width:760px) {
+  .notice-two { display:none; }
+  .notice-one { left:12px; bottom:-18px; scale:.85; transform-origin:left bottom; }
+  .motion-toggle { right:12px; bottom:12px; padding:9px 12px; font-size:10px; }
+  .scroll-visual { transform:none!important; }
+}
+.motion-root[data-motion-paused="true"] *,
+.motion-root[data-motion-paused="true"] *::before,
+.motion-root[data-motion-paused="true"] *::after { animation:none!important; transition:none!important; }
+.motion-root[data-motion-paused="true"] .motion-reveal,
+.motion-root[data-motion-paused="true"] .scroll-visual { transform:none!important; opacity:1!important; }
+@media (prefers-reduced-motion:reduce) {
+  .main-hero::before,.gym-hero::before,.final-cta::after,.gym-final::after { animation:none; }
+}
