@@ -1,14 +1,91 @@
 "use client";
 import Link from "next/link";
-import { IconArrowRight, IconChevronDown, IconMenu2, IconX } from "@tabler/icons-react";
+import { IconArrowRight, IconChevronDown, IconMenu2, IconX, IconMail } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
 import { Logo } from "./logo";
 import { Reveal } from "./reveal";
 
 export function SiteHeader({ dark = false }: { dark?: boolean }) {
-  const [open, setOpen] = useState(false); const [scrolled, setScrolled] = useState(false);
-  useEffect(() => { const onScroll = () => setScrolled(window.scrollY > 12); onScroll(); window.addEventListener("scroll", onScroll, { passive: true }); return () => window.removeEventListener("scroll", onScroll); }, []);
-  return <header className={`suite-header ${scrolled ? "scrolled" : ""} ${dark ? "on-dark" : ""}`}><div className="site-shell suite-nav"><Link href="/"><Logo /></Link><nav className="suite-links"><Link href="/#products">Products <IconChevronDown size={14} /></Link><Link href="/#agenda">Our Agenda & Motto</Link><Link href="/#growth-engine">Meta & Google Growth</Link><Link href="/products/gymos" className="header-product-pill"><span>GymOS</span><small>Live</small></Link></nav><div className="suite-actions"><Link className="nav-signin" href="https://gym.zitters.com/login" target="_blank">Sign in</Link><Link className="nav-cta" href="/#contact">Get started <IconArrowRight size={15} /></Link><button aria-label="Toggle navigation" aria-expanded={open} onClick={() => setOpen(!open)}>{open ? <IconX /> : <IconMenu2 />}</button></div></div>{open && <nav className="suite-mobile"><Link href="/#products" onClick={() => setOpen(false)}>Products</Link><Link href="/#agenda" onClick={() => setOpen(false)}>Our Agenda & Motto</Link><Link href="/#growth-engine" onClick={() => setOpen(false)}>Meta & Google Growth</Link><Link href="/products/gymos" onClick={() => setOpen(false)}>GymOS (Live Product)</Link><Link href="https://gym.zitters.com/login" target="_blank">Sign in</Link></nav>}</header>;
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <header className={`suite-header ${scrolled ? "scrolled" : ""} ${dark ? "on-dark" : ""}`}>
+      <div className="site-shell suite-nav">
+        <Link href="/">
+          <Logo />
+        </Link>
+        <nav className="suite-links">
+          <Link href="/#products">
+            Products <IconChevronDown size={14} />
+          </Link>
+          <Link href="/#agenda">Our Agenda & Motto</Link>
+          <Link href="/#growth-engine">Meta & Google Growth</Link>
+          <Link href="/products/gymos" className="header-product-pill">
+            <span>GymOS</span>
+            <small>Live</small>
+          </Link>
+          <Link
+            href="mailto:zitters.contact@gmail.com"
+            className="header-help-link"
+            title="Help line: zitters.contact@gmail.com"
+          >
+            <IconMail size={15} />
+            <span>Help Line</span>
+          </Link>
+        </nav>
+        <div className="suite-actions">
+          <Link className="nav-signin" href="https://gym.zitters.com/login" target="_blank">
+            Sign in
+          </Link>
+          <Link className="nav-cta" href="/#contact">
+            Get started <IconArrowRight size={15} />
+          </Link>
+          <button
+            aria-label="Toggle navigation"
+            aria-expanded={open}
+            onClick={() => setOpen(!open)}
+          >
+            {open ? <IconX /> : <IconMenu2 />}
+          </button>
+        </div>
+      </div>
+      {open && (
+        <nav className="suite-mobile">
+          <Link href="/#products" onClick={() => setOpen(false)}>
+            Products
+          </Link>
+          <Link href="/#agenda" onClick={() => setOpen(false)}>
+            Our Agenda & Motto
+          </Link>
+          <Link href="/#growth-engine" onClick={() => setOpen(false)}>
+            Meta & Google Growth
+          </Link>
+          <Link href="/products/gymos" onClick={() => setOpen(false)}>
+            GymOS (Live Product)
+          </Link>
+          <Link
+            href="mailto:zitters.contact@gmail.com"
+            onClick={() => setOpen(false)}
+            className="mobile-help-link"
+          >
+            <IconMail size={16} />
+            <span>Help Line: zitters.contact@gmail.com</span>
+          </Link>
+          <Link href="https://gym.zitters.com/login" target="_blank">
+            Sign in
+          </Link>
+        </nav>
+      )}
+    </header>
+  );
 }
 export function SiteFooter() {
   return (
