@@ -256,7 +256,9 @@ h1,h2 { text-wrap:balance; }
 .growth-product.blue .growth-product-top>span { color:var(--accent-blue); }
 .growth-product.orange .growth-product-top>span { color:#c56816; }
 .growth-product.mint .growth-product-top>span { color:#168367; }
-.mini-brand span,.product-lockup>span,.gym-product-id>span { background:linear-gradient(140deg,#087ec0,#365ce6 55%,#7c3aed); color:white; }
+.mini-brand span,.product-lockup>span,.gym-product-id>span { background:#141416; color:white; }
+.mini-brand-mark { width:24px; height:24px; border-radius:5px; background:#141416; border:1px solid rgba(0,0,0,0.1); display:inline-flex; align-items:center; justify-content:center; overflow:hidden; }
+.mini-brand-mark img { width:18px; height:18px; object-fit:contain; }
 .command-nav .active { color:#2457bd; background:#edf3ff; }
 .chart-bars i { background:#3b6de0; }
 .chart-bars i:nth-child(-n+6) { background:#a9bfee; }
@@ -279,7 +281,9 @@ h1,h2 { text-wrap:balance; }
 .platform-foundation>div:nth-child(2)>span { color:var(--accent-violet); }
 .platform-foundation>div:nth-child(3)>span { color:#168367; }
 .local-feature>svg { color:#2563eb; }.local-feature:nth-last-child(2)>svg { color:#b77908; }
-.loop-center,.growth-orbit>div { background:linear-gradient(140deg,#2158bd,#6436bb); }
+.loop-center,.growth-orbit>div { background:#141416; border:1px solid rgba(255,255,255,0.12); box-shadow:0 12px 36px rgba(0,0,0,0.5); }
+.loop-mark { display:flex; align-items:center; justify-content:center; margin-bottom:4px; }
+.loop-mark img { width:38px; height:38px; object-fit:contain; }
 .gym-module>span { color:#b8caff; background:rgba(100,136,232,.13); }
 .member-copy b { color:#2457bd; background:#edf3ff; }
 .mobile-float>svg { color:var(--accent-green); }.float-streak>svg { color:#b77908; }
@@ -451,3 +455,110 @@ h1,h2 { text-wrap:balance; }
 @media (max-width:760px) {
   .gym-transform-grid { grid-template-columns:1fr; }
 }
+
+/* ================================================================
+   ZITTERS SPLASH SCREEN — v4
+   200px logo centred  •  Brand-matched glow  •  Spring pop in
+   Swiggy curtain lift out  •  Always 2.2s  •  100% GPU
+   ================================================================ */
+
+/* Full-screen canvas — deep dark matching logo's blue-black */
+.zsp {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  background: #05050f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: all;
+  overflow: hidden;
+  cursor: pointer;
+  user-select: none;
+  /* Smooth canvas fade-in so first frame isn't a jarring flash */
+  animation: zsp-canvas-in 0.25s ease both;
+  will-change: transform;
+}
+
+/* Swiggy curtain — entire screen lifts up */
+.zsp-lift {
+  animation: none !important;
+  transform: translateY(-100%);
+  transition: transform 0.65s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+/* Ambient radial glow — pulled directly from logo colours (indigo + cyan) */
+.zsp-glow {
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(96,  70, 255, 0.28) 0%,
+    rgba(0,  180, 255, 0.14) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+  animation: zsp-glow-breathe 2.8s ease-in-out infinite alternate;
+  will-change: transform, opacity;
+}
+
+/* Logo wrapper */
+.zsp-logo-wrap {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* The spring-pop entrance — invisible until ready so no flash */
+.zsp-pop {
+  animation: zsp-logo-spring 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.1s both;
+  will-change: transform, opacity;
+}
+
+/* The logo image — 200px, large and impactful */
+.zsp-img {
+  width: 200px !important;
+  height: 200px !important;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+  /* Ambient drop shadow matching the logo's actual neon colours */
+  filter:
+    drop-shadow(0 0  28px rgba(96,  70, 255, 0.7))
+    drop-shadow(0 0  60px rgba(0,  180, 255, 0.45))
+    drop-shadow(0 16px 40px rgba(0, 0, 0, 0.6));
+}
+
+/* ---- Keyframes ---- */
+
+@keyframes zsp-canvas-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Breathing glow behind logo */
+@keyframes zsp-glow-breathe {
+  0%   { transform: scale(0.85); opacity: 0.6; }
+  100% { transform: scale(1.15); opacity: 1;   }
+}
+
+/* Spring logo pop — natural physics feel */
+@keyframes zsp-logo-spring {
+  0%   { opacity: 0; transform: scale(0.55); }
+  55%  { opacity: 1; transform: scale(1.08); }
+  75%  { transform: scale(0.96); }
+  90%  { transform: scale(1.02); }
+  100% { opacity: 1; transform: scale(1.00); }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .zsp { display: none !important; }
+}
+
+

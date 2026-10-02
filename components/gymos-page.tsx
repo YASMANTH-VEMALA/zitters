@@ -79,7 +79,7 @@ export function GymOSPage() {
             The all-in-one software operating system that converts paper registers, lost fee dues, and front-desk bottlenecks into automated cloud software.
           </motion.p>
           <motion.div className="gym-hero-actions" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.28 }}>
-            <Link href="https://gym-ecosystem-web-theta.vercel.app/dashboard" target="_blank" className="gym-primary">
+            <Link href="https://gym.zitters.com/login" target="_blank" className="gym-primary">
               Open Live GymOS Dashboard <IconArrowRight size={17} />
             </Link>
             <Link href="#tour" className="gym-secondary">
@@ -345,7 +345,7 @@ export function GymOSPage() {
           </p>
           <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap", marginTop: "24px" }}>
             <Link
-              href="https://gym-ecosystem-web-theta.vercel.app/dashboard"
+              href="https://gym.zitters.com/login"
               target="_blank"
               className="gym-primary"
             >

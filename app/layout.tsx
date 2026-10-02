@@ -4,6 +4,7 @@ import "./mobile-overrides.css";
 import "./redesign.css";
 import "./cinematic.css";
 import { MotionSettings } from "../components/motion-settings";
+import { SplashScreen } from "../components/splash-screen";
 
 const SITE_URL = "https://www.zitters.com";
 const SITE_NAME = "Zitters";
@@ -158,6 +159,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en" data-scroll-behavior="smooth">
       <body>
+        <SplashScreen />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll } from "motion/react";
 import {
@@ -29,7 +30,9 @@ function CommandCenter() {
     <ScrollVisual className="command-center" label="Illustrative Zitters dashboard with sample data" travel={32}>
       <div className="command-topbar">
         <div className="mini-brand">
-          <span>Z</span>
+          <span className="mini-brand-mark">
+            <Image src="/brand-mark.png" alt="Zitters" width={18} height={18} />
+          </span>
           <strong>Zitters Platform · Growth & Automation OS</strong>
         </div>
         <div className="command-search">
@@ -520,7 +523,7 @@ export function LandingPage() {
                 </Link>
                 <Link
                   className="flagship-direct-demo"
-                  href="https://gym-ecosystem-web-theta.vercel.app/dashboard"
+                  href="https://gym.zitters.com/login"
                   target="_blank"
                 >
                   Open Live Dashboard ↗
@@ -610,7 +613,9 @@ export function LandingPage() {
             </div>
             <div className="advantage-loop">
               <div className="loop-center">
-                <span>Z</span>
+                <span className="loop-mark">
+                  <Image src="/brand-mark.png" alt="Zitters" width={38} height={38} />
+                </span>
                 <strong>Zitters AI</strong>
               </div>
               <span className="loop-item item-one">Meta & Google</span>
