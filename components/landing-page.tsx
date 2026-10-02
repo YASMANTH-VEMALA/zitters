@@ -645,9 +645,15 @@ export function LandingPage() {
             <Link className="white-cta" href="/products/gymos">
               Go Inside GymOS (View All Data) <IconArrowRight size={17} />
             </Link>
-            <Link className="outline-cta" href="mailto:hello@zitters.com">
+            <Link className="outline-cta" href="mailto:zitters.contact@gmail.com">
               Talk to our team
             </Link>
+          </div>
+          <div style={{ marginTop: "22px", display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "8px", fontSize: "13px", opacity: 0.88 }}>
+            <span>Help line:</span>
+            <a href="mailto:zitters.contact@gmail.com" style={{ color: "#fff", textDecoration: "underline", fontWeight: 600 }}>
+              zitters.contact@gmail.com
+            </a>
           </div>
         </Reveal>
       </ScrollSection>

@@ -132,7 +132,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer support",
-      email: "hello@zitters.com",
+      email: "zitters.contact@gmail.com",
     },
     foundingDate: "2024",
     areaServed: "IN",
