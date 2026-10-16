@@ -1,10 +1,22 @@
 import type { Metadata, Viewport } from "next";
-import "./globals.css";
-import "./mobile-overrides.css";
-import "./redesign.css";
-import "./cinematic.css";
+import { Archivo, IBM_Plex_Mono } from "next/font/google";
+import "./experience.css";
 import { MotionSettings } from "../components/motion-settings";
-import { SplashScreen } from "../components/splash-screen";
+import { SmoothScroll } from "../components/smooth-scroll";
+
+const displayFont = Archivo({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+  variable: "--font-archivo",
+});
+
+const monoFont = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
+  variable: "--font-plex-mono",
+});
 
 const SITE_URL = "https://www.zitters.com";
 const SITE_NAME = "Zitters";
@@ -23,11 +35,11 @@ export const metadata: Metadata = {
 
   /* ─── Core ─────────────────────────────────────────────── */
   title: {
-    default: "Zitters — Convert Manual Work to Software. Grow with Meta & Google.",
+    default: "Zitters — Less Admin. More Momentum.",
     template: "%s | Zitters",
   },
   description:
-    "Zitters replaces paper registers, spreadsheets, and lost leads with purpose-built vertical SaaS — while driving high-intent customers straight to your door via Meta Ads, WhatsApp, and Google Business.",
+    "Zitters connects local business operations and customer discovery. Explore GymOS for member records, QR attendance, fee tracking and a clearer gym workflow.",
   keywords: [
     "gym management software",
     "GymOS",
@@ -59,9 +71,9 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: "Zitters — Converting Manual Work to Software",
+    title: "Zitters — Less Admin. More Momentum.",
     description:
-      "Replace paper registers & lost leads with Zitters vertical software. Drive real customers via Meta Ads, WhatsApp Automation & Google Business domination.",
+      "Purpose-built software for local business operations, starting with GymOS for gyms and fitness centers.",
     images: [
       {
         url: "/og-zitters.jpg",
@@ -76,9 +88,9 @@ export const metadata: Metadata = {
   /* ─── Twitter / X Card ──────────────────────────────────── */
   twitter: {
     card: "summary_large_image",
-    title: "Zitters — Convert Manual Business to Modern Software",
+    title: "Zitters — Less Admin. More Momentum.",
     description:
-      "Purpose-built vertical SaaS + Meta Ads + WhatsApp Automation + Google Business dominance. Starting with GymOS for fitness centers.",
+      "Explore GymOS and a connected approach to local business operations and discovery.",
     images: ["/og-zitters.jpg"],
     creator: "@zittersin",
     site: "@zittersin",
@@ -124,7 +136,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     url: "https://www.zitters.com",
     logo: "https://www.zitters.com/zitters-logo.png",
     description:
-      "Zitters converts manual business operations to vertical software while driving customer acquisition through Meta Ads, WhatsApp Automation, and Google Business dominance.",
+      "Zitters builds purpose-built software for local business operations, starting with GymOS for gyms and fitness centers.",
     sameAs: [
       "https://www.instagram.com/zittersin",
       "https://www.facebook.com/zittersin",
@@ -146,9 +158,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             "@type": "SoftwareApplication",
             name: "GymOS",
             applicationCategory: "BusinessApplication",
-            operatingSystem: "Web, iOS, Android",
+            operatingSystem: "Web",
             description:
-              "All-in-one gym management software with QR attendance, member CRM, automated WhatsApp fee collection, and owner analytics dashboard.",
+              "Gym management software with member records, QR attendance, fee tracking, notifications, a member view and an owner dashboard.",
             url: "https://www.zitters.com/products/gymos",
           },
         },
@@ -157,9 +169,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   };
 
   return (
-    <html lang="en" data-scroll-behavior="smooth">
+    <html lang="en" data-scroll-behavior="smooth" className={`${displayFont.variable} ${monoFont.variable}`}>
       <body>
-        <SplashScreen />
+        <SmoothScroll />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

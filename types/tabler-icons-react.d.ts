@@ -5,6 +5,7 @@ declare module "@tabler/icons-react" {
   type TablerIcon = ComponentType<IconProps>;
 
   export const IconArrowRight: TablerIcon;
+  export const IconArrowUpRight: TablerIcon;
   export const IconArrowLeft: TablerIcon;
   export const IconBolt: TablerIcon;
   export const IconBrandWhatsapp: TablerIcon;
@@ -52,4 +53,6 @@ declare module "@tabler/icons-react" {
   export const IconTrendingUp: TablerIcon;
   export const IconFlame: TablerIcon;
   export const IconReceipt: TablerIcon;
+  export const IconClock: TablerIcon;
+  export const IconPhoneOff: TablerIcon;
 }

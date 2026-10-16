@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { GymOSPage } from "@/components/gymos-page";
+import { ExperienceGymOS } from "@/components/experience-gymos";
 
 export const metadata: Metadata = {
-  title: "GymOS — Run Your Gym. Grow Your Community.",
+  title: "GymOS — Your Gym, in Sync.",
   description:
-    "GymOS by Zitters is the all-in-one gym management software. Replace paper registers with QR attendance, automate WhatsApp fee collection, manage members, and track gym growth — all from one cloud dashboard.",
+    "Explore GymOS by Zitters: member records, QR attendance, fee tracking, notifications, a member mobile view and an owner dashboard for your gym.",
   keywords: [
     "gym management software",
     "GymOS",
@@ -28,9 +28,9 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: "https://www.zitters.com/products/gymos",
     siteName: "Zitters",
-    title: "GymOS by Zitters — Run your gym. Grow your community.",
+    title: "GymOS by Zitters — Your Gym, in Sync.",
     description:
-      "Memberships, QR attendance, automated fee collection, member mobile app, and owner analytics — all in one connected gym operating system.",
+      "See the GymOS product views for members, QR attendance, fees, notifications and the owner dashboard.",
     images: [
       {
         url: "/og-gymos.jpg",
@@ -43,13 +43,13 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "GymOS by Zitters — The Operating System for Modern Gyms",
+    title: "GymOS by Zitters — Your Gym, in Sync.",
     description:
-      "100% paperless check-ins, automated WhatsApp billing, member CRM, and real-time owner dashboard. Ditch the paper registers forever.",
+      "A connected workspace for member records, attendance, fees and everyday gym operations.",
     images: ["/og-gymos.jpg"],
   },
 };
 
 export default function Page() {
-  return <GymOSPage />;
+  return <ExperienceGymOS />;
 }
